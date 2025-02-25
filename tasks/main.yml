@@ -1,0 +1,25 @@
+---
+
+- name: install pkgs
+  ansible.builtin.apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  vars:
+    packages:
+      - prometheus-wireguard-exporter
+
+- name: Enable and start service
+  ansible.builtin.service:
+    name: prometheus-wireguard-exporter
+    enabled: yes
+    state: started
+
+
+
+
+
+
+
+
+
